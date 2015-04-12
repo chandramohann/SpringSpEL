@@ -7,10 +7,8 @@ import org.springframework.stereotype.Component;
 @Component("companyBean")
 public class Company {
 
-	//@Value("12345")
 	private long businessNumber;
 	
-	//@Value("Acme Company")
 	private String name;
 
 	public long getBusinessNumber() {
