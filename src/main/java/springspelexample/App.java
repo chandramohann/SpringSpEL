@@ -17,11 +17,15 @@ public class App {
 			
 			ProjectEnvironment pe = (ProjectEnvironment) context.getBean("projectEnvBean");
 			
+			SecondProjectEnvironment pe2 = (SecondProjectEnvironment) context.getBean("secondProjectEnvBean");
+			
 			System.out.println(employee.toString());
 			
-			System.out.println("\n" +student.toString());
+			System.out.println(student.toString());
 			
-			System.out.println("\n" +pe.toString());
+			System.out.println(pe.toString());
+			
+			System.out.println(pe2.toString());
 			
 			context.close();
 	}

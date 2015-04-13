@@ -18,7 +18,7 @@ public class ProjectEnvironment {
 	 @Autowired
 	 Environment environment;
 	 
-	 //post Spring 3.2 syntax:
+	 //post Spring 3.2 syntax
 	 @Value("#{ environment['appHome'] }")
 	 private String appHome;	
 
