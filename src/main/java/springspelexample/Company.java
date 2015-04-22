@@ -2,7 +2,6 @@ package springspelexample;
 
 import org.springframework.stereotype.Component;
 
-
 @Component("companyBean")
 public class Company {
 
