@@ -1,0 +1,57 @@
+The @Component  annotation is used to register the component in Spring. Here are two components annotated correspondingly :
+
+ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+Employee employee = (Employee) context.getBean("employeeBean");
+context.close() 
+
+<bean id="companyBean" class="springspelexample.Company">
+        <property name="businessNumber" value="12345" />
+        <property name="name" value="Acme Company" />
+    </bean>
+    <bean id="employeeBean" class="springspelexample.Employee">
+        <property name="name" value="James Smith" />
+        <property name="departmentName" value="Information Technology" />
+        <property name="company" value="#{companyBean}" />
+</bean>
+
+The applicationContext.xml can enable the auto component-scan to avoid bean declaration in XML file:
+<context:component-scan base-package="com.springframeworkguru.snippets.enterprise" />
+	
+Literal Values	
+     <property name="name" value="James Smith" />
+     <property name="departmentName" value="Information Technology" />
+
+Bean Reference	 
+	
+<property name="company" value="#{companyBean}" />
+<property name="company" ref="companyBean" />
+
+Property references
+<bean id="job">
+    <property name="skill" value="Spring Expression Language" />
+</bean>
+
+<bean id="employee">
+   <property name="employee_skill" value="#{job.skill}" />
+</bean>	
+
+Employee employee = new Employee(); 
+employee.setEmployee_skills(job.getSkill());
+
+Method references
+<property name="employeeName" value="employee.getName()?.toUpperCase()" />
+
+SpEL Predefined Variables
+systemProperties
+systemEnvironment 
+
+ @Value("#{ environment['appHome'] }")
+ 
+@Configuration
+@PropertySource({
+ "classpath:config.properties"
+})
+@Component("secondProjectEnvBean")
+public class SecondProjectEnvironment {
+
+In this example we used @PropertySource  annotations to read properties file, annotation placed on core Spring configuration classes ( @Configuration ).
